@@ -137,8 +137,8 @@ public class Pessoa {
 
     public void setComplemento(String complemento) throws InsercaoException {
         complemento = Utils.checaNull(complemento);
-        if (complemento.length() > 25){
-            throw new InsercaoException("Complemento inválido: número de caracteres maior que 25");
+        if (complemento.length() > 250){
+            throw new InsercaoException("Complemento inválido: número de caracteres maior que 250");
         } else {
             this.complemento = complemento;
         }

@@ -203,7 +203,7 @@ public class ControleCliente extends Controle implements InterfaceControle{
             resultadoOperacao = clienteDAO.inserir(this.usuario, this.senha, this.endereco, cliente);
             return resultadoOperacao;
         } catch (InsercaoException ex) {
-            //tratamento de falha na insercao
+            System.err.println(ex.getMessage());
             return ClienteDAO.ERRO_INSERCAO;
         }
     }

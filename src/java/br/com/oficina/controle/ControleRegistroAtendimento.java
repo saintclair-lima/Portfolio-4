@@ -175,10 +175,6 @@ public class ControleRegistroAtendimento extends Controle implements InterfaceCo
                 rd = request.getRequestDispatcher("atualizarRegistroAtendimento.jsp");
                 break;
             default:
-//                request.setAttribute("conteudo","<h1>Falha na OperaÃ§Ã£o</h1>"
-//                                              + "<p>Por algum motivo nÃ£o identificado, a operaÃ§Ã£o foi cancelada. Entre em contato com o webmaster</p>");
-//                rd = request.getRequestDispatcher("/resultadoOperacao.jsp");
-                
                 rd = request.getRequestDispatcher("buscarRegistroAtendimento.jsp");
         }
 
@@ -186,21 +182,29 @@ public class ControleRegistroAtendimento extends Controle implements InterfaceCo
     }
     
     public int alterar(HttpServletRequest request, HttpServletResponse response) throws ParseException, EntidadeNulaException, InsercaoException{
-        //tratamento de falha na insercao
-            AtendenteDAO atendenteDAO = new AtendenteDAO();
-            ClienteDAO clienteDAO = new ClienteDAO();
-            CarroDAO carroDAO = new CarroDAO();
-            RegistroAtendimentoDAO raDAO = new RegistroAtendimentoDAO();
-            
-            
-            
-            GregorianCalendar dataAbertura = Utils.getGregCalendarDeString(request.getParameter("data_abertura"));
-            String descricaoAbertura = request.getParameter("descricao_abertura");
-            Atendente atendente = atendenteDAO.buscarId(usuario, senha, endereco, Integer.parseInt(request.getParameter("id_atendente")));
-            Cliente cliente = clienteDAO.buscarId(usuario, senha, endereco, Integer.parseInt(request.getParameter("id_cliente")));
-            Carro carro = carroDAO.buscar(usuario, senha, endereco, Integer.parseInt(request.getParameter("cod_cliente")));
-            
-            RegistroAtendimento ra = new RegistroAtendimento(0, dataAbertura, descricaoAbertura, atendente, cliente, carro, true);
+        AtendenteDAO atendenteDAO = new AtendenteDAO();
+        ClienteDAO clienteDAO = new ClienteDAO();
+        CarroDAO carroDAO = new CarroDAO();
+        RegistroAtendimentoDAO raDAO = new RegistroAtendimentoDAO();
+
+
+        int numero = Integer.parseInt(request.getParameter("numero_ra"));
+        GregorianCalendar dataAbertura = Utils.getGregCalendarDeString(request.getParameter("data_abertura"));
+        String descricaoAbertura = request.getParameter("descricao_abertura");
+        Atendente atendente = atendenteDAO.buscarId(usuario, senha, endereco, Integer.parseInt(request.getParameter("atendente_id")));
+        Cliente cliente = clienteDAO.buscarId(usuario, senha, endereco, Integer.parseInt(request.getParameter("cliente_id")));
+        Carro carro = carroDAO.buscar(usuario, senha, endereco, Integer.parseInt(request.getParameter("carro_codigo")));
+
+        boolean isEncerrada = Boolean.parseBoolean(request.getParameter("ra_esta_encerrado"));
+        RegistroAtendimento ra;
+        if (isEncerrada){
+            GregorianCalendar dataEncerramento = new GregorianCalendar();
+            String descricaoEncerramento = request.getParameter("descricao_encerramento");
+            String estado = request.getParameter("estado");
+            ra = new RegistroAtendimento(numero, dataAbertura, descricaoAbertura, dataEncerramento, descricaoEncerramento, estado, atendente, cliente, carro, true);
+        } else {
+            ra = new RegistroAtendimento(numero, dataAbertura, descricaoAbertura, atendente, cliente, carro, true);
+        }
         int resultadoOperacao = raDAO.alterar(this.usuario, this.senha, this.endereco, ra);
         return resultadoOperacao;
     }
@@ -244,7 +248,7 @@ public class ControleRegistroAtendimento extends Controle implements InterfaceCo
             return resultadoOperacao;
         } catch (InsercaoException ex) {
             //tratamento de falha na insercao
-            System.err.println(ex.getMessage() + "\n" + ex.getStackTrace());
+            System.err.println(ex.getMessage());
             return RegistroAtendimentoDAO.ERRO_INSERCAO;
         }
     }

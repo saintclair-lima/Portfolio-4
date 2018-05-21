@@ -182,7 +182,7 @@ public class ControleTipoServico extends Controle implements InterfaceControle{
             resultadoOperacao = tipoServicoDAO.inserir(this.usuario, this.senha, this.endereco, tipoServico);
             return resultadoOperacao;
         } catch (InsercaoException ex) {
-            System.err.println(ex.getMessage() + "\n" + ex.getStackTrace().toString());
+            System.err.println(ex.getMessage());
             return TipoServicoDAO.ERRO_INSERCAO;
         }
     }
