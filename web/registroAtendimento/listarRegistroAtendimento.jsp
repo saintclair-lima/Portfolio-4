@@ -26,7 +26,7 @@
                         <td>
                             <%= atendimento.getNumero()%>
                         <td>
-                            <%= atendimento.getDataAberturaString()%>
+                            <%= atendimento.getDataAberturaStringFormatada()%>
                         </td>
                         <td>
                             <a href="<%=request.getContextPath() %>/cliente/?acao=detalhar&cliente_codigo=<%= atendimento.getCliente().getId()%>">

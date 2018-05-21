@@ -1,8 +1,10 @@
+<%@page import="java.util.GregorianCalendar"%>
 <%@page import="br.com.oficina.modelo.Cliente"%>
 <%@page import="br.com.oficina.modelo.TipoServico"%>
 <%@page import="br.com.oficina.modelo.RegistroAtendimento"%>
 <%@page import="br.com.oficina.modelo.Carro"%>
 <%@page import="br.com.oficina.modelo.Atendente"%>
+<%@page import="br.com.oficina.utils.Utils"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="iso-8859-1"%>
 <!DOCTYPE html>
@@ -40,8 +42,9 @@
                 carroSelect.disabled = false;
                 
                 var tamanho = carroSelect.options.length;
-                for (i=tamanho-1; i>0; i--){
-                    carroSelect.options.remove(i)
+                for (var i=tamanho-1; i>0; i--){
+                    console.log("removendo " + carroSelect.options[i]);
+                    carroSelect.options.remove(i);
                 }
                 
                 for (var carroId in todosCarros){
@@ -116,7 +119,7 @@
             <input type="hidden" value="10" name="carro_codigo" id="carro_codigo"/>
             <br/>          
             <br/>
-
+            <p id="data_abertura" name="data_abertura"><b>Data do Atendimento: </b><%=Utils.getDataStringFormatada(new GregorianCalendar())%></p>
             <label for="descricao_Abertura"><b>Descrição do Atendimento: </b></label><br/>
             <textarea name="descricao_abertura" id="descricao_abertura"></textarea>
 
