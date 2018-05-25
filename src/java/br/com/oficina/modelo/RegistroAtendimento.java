@@ -24,7 +24,8 @@ public class RegistroAtendimento extends ModeloRaOs{
         super(numero, dataAbertura, descricaoAbertura, estado);
         this.setAtendente(atendente);
         this.setCliente(cliente);
-        this.setCarro(carro);        
+        this.setCarro(carro);
+        this.setEstado(estado);
     }
     
     public RegistroAtendimento (int numero, GregorianCalendar dataAbertura,

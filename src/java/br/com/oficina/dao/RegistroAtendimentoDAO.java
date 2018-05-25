@@ -232,21 +232,32 @@ public class RegistroAtendimentoDAO extends DAO{
                     
                     String estado = rs.getString("ra_estado");
                     
-                    System.err.println(estado + " " + atendente.getNome());
-                    //Se o RA não estiver concluído, faz uma construção de um RA simples:
-                    if (!estado.equals("Concluído")){
-                        registroAtendimento = new RegistroAtendimento(rs.getInt("ra_numero"),
-                            dataAbertura, rs.getString("ra_descricao_abertura"), rs.getString("ra_estado"),
-                            atendente, cliente, carro);
+                    //Se o RA estiver aberto, faz uma construção de um RA simples:
+                    if (estado.equals("Aberto")){
+                        registroAtendimento = new RegistroAtendimento(
+                                rs.getInt("ra_numero"),
+                                dataAbertura,
+                                rs.getString("ra_descricao_abertura"),
+                                rs.getString("ra_estado"),
+                                atendente,
+                                cliente,
+                                carro);
                         
                     //Caso esreja concluído:
                     } else {
                         GregorianCalendar dataEncerramento = new GregorianCalendar();
                         dataEncerramento.setTime(rs.getDate("ra_data_encerramento"));
-                        registroAtendimento = new RegistroAtendimento(rs.getInt("ra_numero"),
-                            dataAbertura, rs.getString("ra_descricao_abertura"), dataEncerramento,
-                            rs.getString("ra_descricao_encerramento"), rs.getString("ra_estado"),
-                            atendente, cliente, carro, rs.getBoolean("ra_ativo"));
+                        registroAtendimento = new RegistroAtendimento(
+                                rs.getInt("ra_numero"),
+                                dataAbertura,
+                                rs.getString("ra_descricao_abertura"),
+                                dataEncerramento,
+                                rs.getString("ra_descricao_encerramento"),
+                                rs.getString("ra_estado"),
+                                atendente,
+                                cliente,
+                                carro,
+                                rs.getBoolean("ra_ativo"));
                     }
                     
                 }catch(InsercaoException e){

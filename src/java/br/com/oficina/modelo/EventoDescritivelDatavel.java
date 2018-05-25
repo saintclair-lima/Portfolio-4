@@ -69,7 +69,7 @@ public abstract class EventoDescritivelDatavel extends EventoDatavel{
     
     @Override
     public String getDataEncerramentoString() {
-        if (! this.getEstado().equals("Concluído")){
+        if (this.getEstado().equals("Aberto")){
             return "Ainda não Concluído";
         } else {
             return super.getDataEncerramentoString();
@@ -78,10 +78,10 @@ public abstract class EventoDescritivelDatavel extends EventoDatavel{
     
     @Override
     public String getDataEncerramentoStringFormatada() {
-        if (! this.getEstado().equals("Concluído")){
+        if (this.getEstado().equals("Aberto")){
             return "Ainda não Concluído";
         } else {
-            return super.getDataEncerramentoString();
+            return super.getDataEncerramentoStringFormatada();
         }
     }
 }
