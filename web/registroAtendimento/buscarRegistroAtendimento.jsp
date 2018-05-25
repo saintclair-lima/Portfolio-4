@@ -11,7 +11,7 @@
         <form action="<%=request.getContextPath() %>/registroAtendimento/" method="post">
             <input type="hidden" name="acao" value="detalhar"/>
             <label for="cliente_codigo"><b>Código do Registro de Atendimento </b></label>
-            <input type="number" name="registro_atendimento_numero" max="2147483648"/>
+            <input type="number" name="ra_numero" max="2147483648"/>
             <input class="bot_envio" type="submit" value="Buscar"/>
         </form>
     </body>

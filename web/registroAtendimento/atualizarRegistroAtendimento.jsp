@@ -178,7 +178,7 @@
             
             <br/><br/>
             <%
-                if (ra.getEstado().equals("Concluído")){
+                if (!ra.getEstado().equals("Aberto")){
             %>
                     <input type="checkbox" name="ra_esta_encerrado" id="ra_esta_encerrado" checked="checked" value="true" onchange="confirmarCancelaEncerramento()">
                     <label for="ra_esta_encerrado">Registro de Atendimento encerrado?</label>

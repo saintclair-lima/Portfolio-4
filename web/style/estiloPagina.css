@@ -1,0 +1,169 @@
+/*Fundo da página*/
+body {
+  font-family: Montserrat, sans-serif;
+  background-color: #ddd;
+}
+
+/*Cabeçalhos título das páginas*/
+h1 {
+  font-weight: normal;
+  letter-spacing: -1px;
+  color: #333;
+}
+
+/*Barra com o logotipo*/
+.top-bar{
+  width:100%;
+  text-align: center;
+  padding: 25px;
+  background-color: #444;
+}
+
+/*Efeitos da fonte do Logotipo*/
+.shadow {
+  color: #000;
+  font-family:  "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-weight: bold;
+  text-shadow:
+      -3px -3px 0 #ddd,
+      3px -3px 0 #ddd,
+      -3px 3px 0 #ddd,
+      3px 3px 0 #ddd,
+      4px 4px 0 #333,
+      5px 5px 0 #333,
+      6px 6px 0 #333,
+      7px 7px 0 #333;
+  line-height: 0.8em;
+  letter-spacing: 0.1em;
+  transform: scaleY(0.7);
+  -webkit-transform: scaleY(0.7);
+  -moz-transform: scaleY(0.7);
+  margin:0;
+  text-align: center;
+}
+.text1 {
+  font-size: 60px;
+}
+.text2 {
+  font-size: 169px;
+}
+.text3 {
+  font-size: 100px;
+}
+
+/*Subtítulo da Logo*/
+.script {
+  font-family: "Liberation";
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  position: relative;
+  margin:0;
+}
+.script span {
+  background-color: #444;
+  color: #eee;
+  padding: 0 0.3em;
+}
+.script:before {
+  content:"";
+  display: block;
+  position: absolute;
+  z-index:-1;
+  top: 50%;
+  width: 100%;
+  border-bottom: 3px solid #fff;
+}
+
+.dropbtn {
+  background-color: #444;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  font-family: Arial;
+  text-decoration: none;
+}
+
+a.dropbtn, a.bot_detalhar, a.bot_excluir{color:white}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown:hover .dropbtn {
+  background-color: #222;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #888}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+table {
+  background: #bbb;
+  color: #000;
+  border-radius: .4em;
+  overflow: hidden;
+}
+    
+
+/*
+    a:link {
+    color: #4caf50;
+    }
+
+    a:visited {
+        color: #4caf50;
+    }
+
+    a:hover {
+        color: yellow;
+    }
+
+    a:active {
+        color: #4caf50;
+    }
+*/
+    .bot_detalhar, .bot_envio {
+        border : #4caf50;
+        background-color: #4caf50;
+        color: black;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-left: 20px;
+    }
+
+    .bot_excluir, .bot_cancela {
+        display: inline-block;
+        background-color: #f44336;
+        border: #f44336;
+        color: fff;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        margin-left: 20px;
+        opacity: 0.9;
+    }
