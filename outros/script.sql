@@ -115,7 +115,7 @@ os_ativo boolean
 );
 
 create table tipo_servico(tipo_servico_codigo int not null constraint tipo_servico_pk primary key,
-tipo_servico_nome varchar(30) not null unique,
+tipo_servico_nome varchar(50) not null unique,
 tipo_servico_duracao_estimada int not null,
 tipo_servico_valor numeric not null,
 tipo_servico_ativo boolean);
