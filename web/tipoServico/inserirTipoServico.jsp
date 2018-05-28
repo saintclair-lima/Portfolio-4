@@ -24,7 +24,7 @@
             <div class="container">
                 <input type="hidden" name="acao" value="inserir"/>
                 <label for="servico_nome">Nome</label>
-                <input type="text" name="servico_nome" maxlength="35"/><br/>
+                <input type="text" name="servico_nome" maxlength="50"/><br/>
                 <label for="servico_duracao">Duração</label>
                 <input type="number" name="servico_duracao" min="0.00" step="1"/><br/>
                 <label for="servico_valor">Valor</label>
