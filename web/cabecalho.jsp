@@ -2,7 +2,7 @@
     </head>
     <body>
         <div class="top-bar shadow text3">CHAVE DE RODAS</div>
-        <div class="script"><span>Centro Automotivo</span></div>
+        <div class="script"><span>Centro Automotivo</span></div><hr/>
 
         <div class="dropdown">
             <a href="/br.com.oficina/index.jsp" class="dropbtn">Home</a>
@@ -33,5 +33,5 @@
         </div>
 
         <div class="dropdown">
-            <a href="" class="dropbtn">Sobre Nós</a>
+            <a href="/br.com.oficina/sobre.jsp" class="dropbtn">Sobre Nós</a>
         </div>
