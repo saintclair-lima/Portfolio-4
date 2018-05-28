@@ -89,7 +89,7 @@ public class ControleCliente extends Controle implements InterfaceControle{
                 } else {
                     processadas = " alteradas ";
                 }
-                request.setAttribute("conteudo","<h1>InformaÃ§Ãµes sobre o cliente" + processadas + "com sucesso</h1>");
+                request.setAttribute("conteudo","<h1>Informações sobre o cliente" + processadas + "com sucesso</h1>");
                 rd = request.getRequestDispatcher("/resultadoOperacao.jsp");
                 break;
             case ClienteDAO.ERRO_SQL:
@@ -119,11 +119,7 @@ public class ControleCliente extends Controle implements InterfaceControle{
             case ATUALIZAR:
                 rd = request.getRequestDispatcher("atualizarCliente.jsp");
                 break;
-            default:
-//                request.setAttribute("conteudo","<h1>Falha na Operação</h1>"
-//                                              + "<p>Por algum motivo nÃ£o identificado, a operaÃ§Ã£o foi cancelada. Entre em contato com o webmaster</p>");
-//                rd = request.getRequestDispatcher("/resultadoOperacao.jsp");
-                
+            default:                
                 rd = request.getRequestDispatcher("buscarCliente.jsp");
         }
 
